@@ -1,0 +1,197 @@
+/* Emberlight — page, HUD and overlays. Dark indigo night, warm ember gold. */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #03040a;
+  color: #dfe4ff;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+#app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 4px 10px;
+  font-size: 14px;
+}
+
+.hud-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hud-mid { flex: 1; justify-content: center; }
+
+.hud-label {
+  letter-spacing: 2px;
+  font-size: 11px;
+  color: #9aa3c7;
+}
+
+#flame-bar {
+  width: 150px;
+  height: 12px;
+  border: 1px solid #4a5480;
+  border-radius: 6px;
+  background: #0a0e24;
+  overflow: hidden;
+}
+
+#flame-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #ff7a1a, #ffb347, #ffe9a8);
+  transition: width 0.15s linear;
+}
+
+#flame-bar.low #flame-fill {
+  background: linear-gradient(90deg, #d21f3c, #ff5a3c);
+}
+
+#flame-num { min-width: 26px; color: #ffe9a8; }
+
+#braziers {
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: #ffb347;
+}
+
+#level-label { color: #9aa3c7; font-size: 13px; }
+
+#score { color: #ffe9a8; font-weight: 600; }
+#best { color: #9aa3c7; font-size: 13px; }
+
+#hud button {
+  background: #141a36;
+  color: #dfe4ff;
+  border: 1px solid #4a5480;
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#hud button:hover { background: #1e2547; border-color: #ffb347; }
+
+#stage {
+  position: relative;
+  width: 960px;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px solid #232a4a;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #05060f;
+}
+
+#game {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: crosshair;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 4, 12, 0.62);
+  z-index: 5;
+}
+
+.overlay.hidden { display: none; }
+
+.overlay-banner { background: rgba(3, 4, 12, 0.35); }
+
+.panel {
+  text-align: center;
+  max-width: 560px;
+  padding: 28px 34px;
+  background: rgba(8, 11, 28, 0.88);
+  border: 1px solid #39437a;
+  border-radius: 12px;
+}
+
+.panel-banner { background: rgba(8, 11, 28, 0.82); }
+
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #ffe9a8;
+  margin: 0 0 10px;
+  letter-spacing: 4px;
+}
+
+h1 { font-size: 44px; text-shadow: 0 0 24px rgba(255, 170, 60, 0.55); }
+h2 { font-size: 30px; }
+
+.tagline {
+  color: #c3cbee;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
+
+.best-line, .score-line { color: #9aa3c7; margin: 0 0 16px; }
+.best-line span, .score-line span { color: #ffe9a8; font-weight: 600; }
+
+.controls {
+  color: #8b93b8;
+  font-size: 12.5px;
+  line-height: 1.6;
+  margin: 16px 0 0;
+}
+
+.help-text {
+  color: #c3cbee;
+  line-height: 1.65;
+  text-align: left;
+  margin: 0 0 16px;
+  font-size: 14.5px;
+}
+
+.big-btn {
+  background: linear-gradient(180deg, #ff9a3c, #e56b12);
+  color: #1a0e02;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 26px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.big-btn:hover { filter: brightness(1.12); }
+
+.btn {
+  background: #141a36;
+  color: #dfe4ff;
+  border: 1px solid #4a5480;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.btn:hover { border-color: #ffb347; }
+
+#hint {
+  text-align: center;
+  color: #6d7599;
+  font-size: 12.5px;
+  padding: 10px 0 4px;
+}
